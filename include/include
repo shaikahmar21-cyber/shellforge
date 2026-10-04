@@ -1,0 +1,30 @@
+#ifndef TOKEN_H
+#define TOKEN_H
+
+#define MAX_TOKENS    128
+#define MAX_TOKEN_LEN 64
+
+// Token types
+typedef enum {
+    TOKEN_WORD,
+    TOKEN_PIPE,
+    TOKEN_INPUT,
+    TOKEN_OUTPUT,
+    TOKEN_APPEND,
+    TOKEN_BACKGROUND,
+    END
+} token_type_t;
+
+// Single token
+typedef struct {
+    token_type_t type;
+    char text[MAX_TOKEN_LEN];
+} token_t;
+
+// Token list
+typedef struct {
+    token_t tokens[MAX_TOKENS];
+    int count;
+} token_list_t;
+
+#endif // TOKEN_H
